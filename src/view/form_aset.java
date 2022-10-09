@@ -302,7 +302,6 @@ public class form_aset extends javax.swing.JFrame {
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         try {
-            model.AutoNumber(this);
             model.Hapus(this);
         } catch (Exception e) {
             Logger.getLogger(form_aset.class.getName()).log(Level.SEVERE, null, e);
