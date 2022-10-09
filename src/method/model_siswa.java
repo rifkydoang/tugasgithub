@@ -44,6 +44,7 @@ String jenisKel;
             System.err.println("Error "+ e);
         } finally{
             Tampil(siswa);
+            Baru(siswa);
             siswa.setLebarKolom();
         }
     }
@@ -110,6 +111,36 @@ String jenisKel;
         } catch (Exception ex) {
             System.out.println(ex);
         }
+    }
+
+    @Override
+    public void Hapus(form_aset siswa) throws SQLException {
+        String sql = "DELETE FROM siswa WHERE NIS=?";
+//        String resetno = "ALTER TABLE siswa DROP NIS";
+//        String consecutivenumbers = "ALTER TABLE siswa ADD NIS INT(5) NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST";
+        try{
+            Connection con = database.getKoneksi();
+            PreparedStatement prepare = con.prepareStatement(sql);
+//            con.createStatement().execute(resetno);
+//            con.createStatement().execute(consecutivenumbers);
+            
+            prepare.setString(1, siswa.txtNis.getText());
+            prepare.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
+            prepare.close();
+        } catch (Exception e){
+            System.out.println(e);
+        } finally{
+            Tampil(siswa);
+            siswa.setLebarKolom();
+            Baru(siswa);
+        }
+    }
+    
+    public void Baru(form_aset siswa) throws SQLException {
+        siswa.txtNama.setText("");
+        siswa.rbLaki.setSelected(true);
+        siswa.cbJurusan.setSelectedIndex(0);
     }
     
 }
