@@ -13,6 +13,7 @@ import java.sql.SQLException;
  */
 public interface controller {
     public void Simpan(form_aset siswa) throws SQLException;
+    public void Ubah(form_aset siswa) throws SQLException;
     public void Hapus(form_aset siswa) throws SQLException;
     public void Tampil(form_aset siswa) throws SQLException;
     public void KlikTable(form_aset siswa) throws SQLException;

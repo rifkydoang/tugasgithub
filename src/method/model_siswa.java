@@ -142,5 +142,33 @@ String jenisKel;
         siswa.rbLaki.setSelected(true);
         siswa.cbJurusan.setSelectedIndex(0);
     }
+
+    @Override
+    public void Ubah(form_aset siswa) throws SQLException {
+      if (siswa.rbLaki.isSelected()) {
+            jenisKel = "Laki-laki";
+        } else {
+            jenisKel = "Perempuan";
+        }
+            try {
+                Connection con = database.getKoneksi();
+                String sql = "UPDATE siswa SET nama=?, jenis_kelamin=?, " + "jurusan=? WHERE NIS=?";
+                PreparedStatement prepare = con.prepareStatement(sql);
+
+                prepare.setString(4, siswa.txtNis.getText());
+                prepare.setString(1, siswa.txtNama.getText());
+                prepare.setString(2, jenisKel);
+                prepare.setString(3, (String) siswa.cbJurusan.getSelectedItem());
+                prepare.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Data berhasil diubah");
+                prepare.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            } finally{
+                Tampil(siswa);
+                siswa.setLebarKolom();
+                Baru(siswa);
+            }  
+    }
     
 }
