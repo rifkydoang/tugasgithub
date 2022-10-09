@@ -167,6 +167,11 @@ public class form_aset extends javax.swing.JFrame {
         btnUbah.setText("Ubah");
 
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         btnBatal.setText("Batal");
 
@@ -181,6 +186,11 @@ public class form_aset extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabel);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -289,6 +299,23 @@ public class form_aset extends javax.swing.JFrame {
             Logger.getLogger(form_aset.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        try {
+            model.AutoNumber(this);
+            model.Hapus(this);
+        } catch (Exception e) {
+            Logger.getLogger(form_aset.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void tabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMouseClicked
+        try {
+            model.KlikTable(this);
+        } catch (Exception e) {
+            Logger.getLogger(form_aset.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }//GEN-LAST:event_tabelMouseClicked
 
     /**
      * @param args the command line arguments
