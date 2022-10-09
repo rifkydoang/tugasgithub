@@ -165,6 +165,11 @@ public class form_aset extends javax.swing.JFrame {
         });
 
         btnUbah.setText("Ubah");
+        btnUbah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbahActionPerformed(evt);
+            }
+        });
 
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -315,6 +320,15 @@ public class form_aset extends javax.swing.JFrame {
             Logger.getLogger(form_aset.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_tabelMouseClicked
+
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        try {
+            model.Ubah(this);
+        } catch (Exception e) {
+            Logger.getLogger(form_aset.class.getName()).log(Level.SEVERE, null, e);
+            
+        }
+    }//GEN-LAST:event_btnUbahActionPerformed
 
     /**
      * @param args the command line arguments
